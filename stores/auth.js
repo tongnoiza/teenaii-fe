@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 
-export const useCounterStore = defineStore('counter', {
+export const useAuthStore = defineStore('AuthStore', {
     state: () => ({ username: 'sontaya' }),
     getters: {
         GetuserName:(state) => state.username

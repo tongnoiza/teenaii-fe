@@ -184,7 +184,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(useCounterStore, ['GetuserName']),
+    ...mapState(useAuthStore, ['GetuserName']),
   },
   methods: {
     back() {
