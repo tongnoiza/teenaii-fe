@@ -72,19 +72,10 @@
       <li>
         <div class="iocn-link">
           <a href="#">
-            <!-- <i class='bx bx-plug'></i> -->
             <v-icon icon="mdi-briefcase-clock-outline" />
-
             <span class="link_name">ข้อมูลบริการ</span>
           </a>
-          <!-- <i class='bx bxs-chevron-down arrow'></i> -->
         </div>
-        <!-- <ul class="sub-menu">
-          <li><a class="link_name" href="#">Plugins</a></li>
-          <li><a href="#">UI Face</a></li>
-          <li><a href="#">Pigments</a></li>
-          <li><a href="#">Box Icons</a></li>
-        </ul> -->
       </li>   <li>
         <div class="iocn-link">
           <a href="#">
@@ -138,24 +129,6 @@
           <li><a class="link_name" href="#">ติดต่อศูนย์ช่วยเหลือ</a></li>
         </ul>
       </li>
-      <!-- <li>
-        <a href="#">
-          <i class='bx bx-history'></i>
-          <span class="link_name">History</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">History</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-cog'></i>
-          <span class="link_name">Setting</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Setting</a></li>
-        </ul>
-      </li> -->
       <li>
         <div class="profile-details">
           <div class="profile-content">
@@ -199,12 +172,6 @@ export default {
     return {
       panel: [0],
       breadcrumbsItems: ['สตอคสินค้า', 'ภาพรวม'],
-      items: [
-        {
-          title: 'Click Me', onClick: () => console.log('ออกจากระบบ')
-        },
-
-      ],
     }
   },
   mounted() {
