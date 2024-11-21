@@ -28,7 +28,7 @@
           <li><a href="#">PHP & MySQL</a></li>
         </ul>
       </li>
-  
+
       <li>
         <div class="iocn-link">
           <a href="#">
@@ -76,7 +76,8 @@
             <span class="link_name">ข้อมูลบริการ</span>
           </a>
         </div>
-      </li>   <li>
+      </li>
+      <li>
         <div class="iocn-link">
           <a href="#">
             <v-icon icon="mdi-account-group" />
@@ -90,11 +91,11 @@
           <li><a href="#">JavaScript</a></li>
           <li><a href="#">PHP & MySQL</a></li>
         </ul>
-      </li>  
-       <li>
+      </li>
+      <li>
         <div class="iocn-link">
           <a href="#">
- <v-icon icon="mdi-warehouse" />
+            <v-icon icon="mdi-warehouse" />
             <span class="link_name">ข้อมูลธุรกิจ</span>
           </a>
           <i class='bx bxs-chevron-down arrow'></i>
@@ -105,7 +106,8 @@
           <li><a href="#">JavaScript</a></li>
           <li><a href="#">PHP & MySQL</a></li>
         </ul>
-      </li>   <li>
+      </li>
+      <li>
         <div class="iocn-link">
           <a href="#">
             <v-icon icon="mdi-cog-outline" />
@@ -131,13 +133,12 @@
       </li>
       <li>
         <div class="profile-details">
-          <div class="profile-content">
+          <div class="profile-content" @click="logout">
             <i class='bx bx-log-out'></i>
             <div class="name-job">
               <div class="profile_name">ออกจากระบบ</div>
             </div>
           </div>
-
         </div>
       </li>
     </ul>
@@ -150,51 +151,44 @@
       <v-breadcrumbs :items="breadcrumbsItems"></v-breadcrumbs>
       <span class="profile-name">
         <v-avatar>
-          <v-img alt="John" src="https://cdn.vuetifyjs.com/images/john.jpg"></v-img>
-        </v-avatar> 
-          username: {{ GetuserName }}
-          <v-menu activator="parent">
-            <v-list>
-              <v-list-item >
-                <v-list-item-title @click="logout">ออกจากระบบ</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+          <v-img alt="John" :src="userdata.Profileimg"></v-img>
+        </v-avatar>
+        username: {{ userdata.name }}
+        <!-- <v-menu activator="parent">
+          <v-list>
+            <v-list-item>
+              <v-list-item-title @click="logout">ออกจากระบบ</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu> -->
       </span>
     </div>
     <NuxtPage style="margin: 2%;" />
   </section>
 </template>
-<script>
-import { mapState } from 'pinia'
-export default {
-  data() {
-    return {
-      panel: [0],
-      breadcrumbsItems: ['สตอคสินค้า', 'ภาพรวม'],
-    }
-  },
-  mounted() {
-    let arrow = document.querySelectorAll(".arrow");
-    for (var i = 0; i < arrow.length; i++) {
-      arrow[i].addEventListener("click", (e) => {
-        let arrowParent = e.target.parentElement.parentElement;
-        arrowParent.classList.toggle("showMenu");
-      });
-    }
-  },
-  computed: {
-    ...mapState(useAuthStore, ['GetuserName']),
-  },
-  methods: {
-    back() {
-      console.log('กลับ');
-    }, 
-    logout() {
-      console.log('ออกจากระบบ');
-    }
+<script setup>
+const { userdata } = useAuthStore()
+const breadcrumbsItems = ref(['สตอคสินค้า', 'ภาพรวม'])
+
+
+onMounted(() => {
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e) => {
+      let arrowParent = e.target.parentElement.parentElement;
+      arrowParent.classList.toggle("showMenu");
+    });
   }
+})
+
+
+function back() {
+  console.log('กลับ');
 }
+function logout() {
+  console.log('ออกจากระบบ');
+}
+
 </script>
 
 <style scoped>
@@ -529,8 +523,9 @@ export default {
   color: #36e4da;
   font-size: 16px;
 }
-.position-logo{
+
+.position-logo {
   left: 75px;
-    position: absolute;
+  position: absolute;
 }
 </style>

@@ -1,6 +1,5 @@
 <template>
   <div>
-
       <v-card>
           <v-tabs v-model="tab">
               <v-tab value="1">ภาพรวม</v-tab>
@@ -93,14 +92,10 @@
       </v-card>
   </div>
 </template>
-<script>
-export default {
-  data() {
-      return {
-          toggle_one: 0,
-          tab: null,
-          search: '',
-          Items: [
+<script setup>
+         const toggle_one= ref(0) 
+         const tab = ref(0)
+         const Items= ref([
               {
                   StockProduct: 'ติดตั้งแอร์',
                   addStock: 1,
@@ -157,14 +152,8 @@ export default {
                   Utilize: 1,
                   remaining: 1,
               },
-          ],
-
-      }
-  },
-  methods: {
-      ReportPrint() {
+          ])
+     function ReportPrint() {
           console.log('พิมพ์รายงาน');
-      },
-  }
-}
+      }
 </script>
